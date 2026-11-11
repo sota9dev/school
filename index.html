@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title>SNS風チャットアプリ</title>
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="./assets/style.css">
     </head>
     <body>
         <h1>秘密のグループトーク</h1>
@@ -12,22 +12,31 @@
             <li>Good, Thanks. How about you?</li>
             <li>Hi, how are you doing sir?</li>
             <li>Good, Thanks. How about you?</li>
-            <li>Hi, how are you doing sir?</li>
-            <li>Good, Thanks. How about you?</li>
-            <li>Hi, how are you doing sir?</li>
-            <li>Good, Thanks. How about you?</li>
-            <li>Hi, how are you doing sir?</li>
-            <li>Good, Thanks. How about you?</li>
-            <li>Hi, how are you doing sir?</li>
-            <li>Good, Thanks. How about you?</li>
         </ul>
 
         <form class="input-group">
-            <input type="text">
+            <input type="text" value="おはよう">
             <button type="submit">送信</button>
         </form>
 
         <a href="top.html">トップへ戻る</a>
+        <script>
+            const inputField = document.querySelector('input');
+            const btn = document.querySelector('button');
+            const list = document.querySelector('ul');
+
+            btn.addEventListener('click', function(event) {
+                event.preventDefault();
+
+                let messageText = inputField.value;
+                let newLi = document.createElement('li');
+                newLi.textContent = messageText;
+
+                list.appendChild(newLi);
+                inputField.value = "";
+                console.log(list);
+            });
+        </script>
 
     </body>
 </html>
